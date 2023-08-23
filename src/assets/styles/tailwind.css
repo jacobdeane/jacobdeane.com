@@ -103,4 +103,12 @@ nav.main-navigation {
     width:960px;
     margin-left: -120px;
   }
+  blockquote {
+    width:840px;
+    margin-left: -120px;
+    padding-left: 0 !important;
+    border-left: none;
+    font-size: 2em;
+    line-height: 1.2;
+  }
 }
