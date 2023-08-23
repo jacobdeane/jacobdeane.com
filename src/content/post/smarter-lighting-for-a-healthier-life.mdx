@@ -1,0 +1,143 @@
+---
+publishDate: 2019-07-08T15:50:20.407Z
+title: Smarter Lighting for a Healthier Life
+excerpt: Light affects your sleep, your concentration, alertness and can profoundly affect your health.
+image: https://images.unsplash.com/photo-1655767187300-283c2e67f629?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1548&q=80
+category: technology
+tags:
+  - iot
+  - smart-home
+  - technology
+  - home-automation
+---
+import tvflow from '~/assets/images/tv-flow.png';
+import tvsubflow from '~/assets/images/tv-subflow.png';
+
+No matter what you have done today before reading this post, you have been massively exposed to something that constantly influences you. It affects your sleep, your concentration, alertness and can profoundly affect your health. Light has a bigger influence on your wellbeing than you probably realise.
+
+For many years lighting has generally been chosen based on installation and running costs and offered very little control over colour and brightness. It’s only fairly recently that the development of LED lights has given us the ability to easily control the colour of lights in our homes, not just the brightness.
+
+> Its certainly not the flashiest feature, but having the right colour temperature lighting is very important to health and happiness.
+
+For me the biggest attraction of smart lighting is not being able to turn lights on from my phone from half-way around the world, nor shouting at a voice assistant to turn up the lights in the kitchen; its the ability to be able to tune the temperature of white light around my house to suit different times of day.
+
+### Its all about sleep
+
+Sleep is vitally important to our health and wellbeing. Poor quality, disrupted or inconsistant sleep can have serious health impacts, increasing the risk of illness, impacting alertness mood and mental welbeing.
+
+Each cell in our body has its own built in clock. In order for proper sleep each of these cells needs to be snychronised; this is the function of the suprachiasmatic nucleus, a tiny area of the brain that drives our body-clock or circadian rhythm.
+
+Circadian rhythms can influence sleep-wake cycles, hormone release, eating habits and digestion, body temperature, and other important bodily functions. This rythm can become desynchronised and have major impacts on our health.
+
+### Let there be light?
+
+Light has perhaps the biggest external influence on our circadian rhythms, cells in the back of the eye detect blue light, and when a high intensity of blue light is detected, it reduces the production of melatonin. Melatonin is a hormone produced by our body that makes us feel tired in the evening. Starting gradually in the mid afternoon and ramping up in the evening the melatonin level rises until it peaks in the middle of the night. The process is designed to make us tired, go to bed and get a good nights sleep. By the next morning, the melatonin levels have dropped and we feel alert and ready for the next day.
+
+During the day we are exposed to natural light which contains a lot of blue light – this means we stay alert and can focus. Unfortunately in the modern world, we don’t spend as much time outside – often our indoor lighting is a fixed colour and may contain quite a lot of blue light – our screens especially. This is not a problem in the morning, but in late afternoon, and especially the evening, over exposure to blue light sources mean we are far too alert, too late in the evening for proper rest and a proper sleep cycle. Our modern world is wreaking havoc on our circadian rhythms.
+
+Smart lighting should be designed to respect your circadian rhythm, daylight balanced, bright light in the morning and through the day to boost alertness and concentration, transitioning to dimmer warmer light in the evening to aid relaxation and eventually sleep. Additionally, the intensity of light should be varied from brightest in the morning through early afternoon and dimmer the closer you get to bedtime.
+
+Circadian lighting is essentially an artificial sunrise to sunset, that travels through both colour spectrum and illuminance levels mimicking that of natural daylight.
+
+![A simulation showing how the sun’s brightness and colour change throughout the course of a day.](../../assets/images/sunlight-circadian.jpg)
+<caption class="caption-bottom">
+  A simulation showing how the sun’s brightness and colour change throughout the course of a day.
+</caption>
+
+We can even take this one step further, instead of being awoken each morning in the dark by an alarm clock, why not have a light slowly fade up through deep reds and oranges to daylight over the course of half an hour – this artificial sunrise will start the wake up process in your body in a much more gental way than a loud alarm clock.
+
+Likewise, when we do go to bed, I’d like an artificial sunset to start to aid that final relaxation and get me ready for a good nights sleep.
+
+### Current Capabilities of Smart Lighting
+
+Over the last four or so years I’ve slowly built up quite a collection of smart lighting products from Philips Hue.
+
+Philips Hue was one of the first manufacturers in the smart lighting space, and has grown to have quite a mature product line. Hue’s capabilities have improved quite a lot over the years, and with the addition physical wireless switches and motion sensors, its quite possible to operate hue bulbs without the need to fumble with a smartphone app.
+
+If you read my previous post about how smart homes aren’t very smart, you’ll have an idea what I am talking about; it’s quite hard to improve upon the simplicity and convenience of the humble light switch – it nearly always works as expected, never has a flat battery and you can’t loose one down the back of the couch.
+
+For a couple of years I’ve used Philips Hue dimmer switches and motion sensors throughout my home to improve functionality of my lighting without complicating the user experience. When you walk into most of the rooms in my house, lights will automatically turn on if needed. In rooms where motion doesn’t make a lot of sense, such as the living room and dining room where you spend a lot of time sat still, Hue dimmer switches allow the lights to be turned on manually.
+
+The Hue app allows for some basic automation to be run on the Hue hub, such as turning on lights to different scenes at different times of day, but it doesn’t allow for any other external inputs, only motion, switches and time of day.
+
+Regarding motion based automations, there is a problem with the default hue functionality in that you can only add three different ‘scenes’ to a motion sensor; that effectively limits you to a distinct day, evening and night scene for each room with a motion sensor. There is no nice transition between the scenes either so its a harsh switch from bright daylight balanced, to dimmer warm white in the evening. There is also no way to set when these scenes start other than a pre-determined time, which is fine if you always have a fixed routine, but real life is not like that.
+
+### Expanding Hue’s capabilities
+
+On its own, the Philips Hue system could create a basic circadian lighting system, but its missing a few key features, namely the ability to subtly transition from daylight mode to evening relax mode.
+
+This is a list of what I want my smart lighting system to achieve
+
+* Artificial sunrise wake up animation
+* Global colour temperature / brightness setting for the whole house which will be used by any light switch or motion sensor to get the correct light settings for any time of day
+* Subtle transition from daytime to evening time, probably to coincide with natural daylight as my house has large windows and my lightbulbs are not the primary light source during the day
+* Know when the TV is in use and turn off lights in the lounge / dining room as appropriate, this means a simpler light switch can be used to control lights without needing multiple modes – user experience is key
+* Know what time we go to bed, start an artificial sunset and set the house to night mode
+
+In order to achieve this functionality I will move the automation functions off the Hue hub and onto another ‘brain’. To run the more complicated programming I will be using Node-RED, a visual flow based programming language that is just about perfect for home automation. My new home automation ‘brain’ will be running on an i5 Intel NUC – which is overkill, I could have easily used a raspberry pi, but the NUC will only use around 6W of power, so won’t cost much to run and gives plenty of scope for future applications. It also uses a much more robust storage format than micro-sd cards that the raspberry pi uses and is significantly faster.
+
+In addition to Node-RED and the Hue lights, switches and motion sensors, I will also need a couple of additional sensors. The first will be a power sensor that measures the power draw of my TV to determine if it is turned on or not and the second will be a simple occupancy sensor for my bed that will measure the pressure under the mattress on each side of the bed and report if it is low (unoccupied) or high (occupied). Both of these additional sensors will run on low power, low cost arduino compatible chips and will report their data to an MQTT broker running on the same NUC as Node-RED.
+
+The beauty of this setup is that its less limited by the software and more by your imagination and problem solving abilities. You can design and build almost any kind on sensor you could think of to create an input for a piece of logic to control lights or indeed many other things connected to the system. Want a sensor to measure if the bath has gotten warm and then set the lights in the bathroom for relaxation – go for it!
+
+### The power of Node-RED
+
+Node-RED is immensly powerful and anyone familiar with a little javascript will be right at home with some of its more advanced features. It allows for both simple programming using blocks that can be linked together with ‘wires’ or more complex programs using node javascript.
+
+<span class="not-prose"><img src={tvflow.src} width={tvflow.width} height={tvflow.height} alt="TV Flow in NodeRED"/></span>
+
+Above is a simple flow which uses the TV power usage as an input – once the power passes a certain threshold it is deemed to be on. It then checks to see if the lights in the lounge are already on – if they are not, then the flow stops, but if they are it runs three more flows, the first resets any animations currently running on the lounge lights, the second sets the TV lights to the appropriate colour and brightness and the final flow slowly fades out the other lights in the room.
+
+To show a little more of the advanced features of Node-RED we can look at the TV Status node which outputs `true` if the TV is on or `false` if the TV is off. This node is a special type called a subflow – a small self contained flow that can be used multiple times as a node within other flows.
+
+<span class="not-prose"><img src={tvsubflow.src} width={tvsubflow.width} height={tvsubflow.height} alt="TV Subflow in NodeRED"/></span>
+
+The first node in this subflow is the raw input data from the TV power sensor, via the MQTT broker. This is then used in two functions; the first creates the status for the node – displaying the current power usage more for interest and debugging than anything else – the second sets the output for this subflow.
+
+The function for the output is quite simple:
+
+```js
+var power = msg.payload.ENERGY.Power || 0;
+var status = false;
+if(power > 40){
+    status = true;
+}
+msg.payload = { "tv": status };
+return msg;
+```
+
+It takes the power input from inside `msg.payload`, if the power (in watts) is higher than 40W, the status is `true`, otherwise the status is `false`. Then a new message is sent on to the output. My TV runs on android OS and it sometimes uses about 20W in standby whilst it runs software updates etc, hence the 40W threshold.
+
+I don’t want to turn this post into a Node-RED tutorial, I could probably write an entire website on that subject, instead I just wanted to give a very small taste of how Node-RED works. It can be both simple and as complex as you need it to be.
+
+### The Building Blocks
+
+Node-RED has a large library of plugins or the ‘pallete’ as they are called; here is a list of nodes that I am using for the circadian lighting flows.
+
+* Hue Magic – a really nice set of nodes that connect to the API on the Hue Hub that allow status of bulbs, motion and switch events and of course control of the Hue bulbs
+* Time Range Switch – a switch (or if statement) that allows a range of time – so for example between 9pm and 5am it would allow the message to flow, and not outside of that range
+* SunCalc – not actually in the pallete, but installed as a nodejs plugin and can be called from functions inside of Node-RED, useful for calculating position of the sun at the current time, or calculating sunset / sunrise times.
+
+### Programming in Node-RED
+
+Flows in Node-RED are self contained snippets of code that can be as simple or complex as you like, but I’ve found the best approach is to try and design each flow to have a single function, this makes the code more robust and easier to edit in the future.
+
+For my circadian lighting I have set up the following flows and together they create a smart lighting system going way beyond the standard functionality of the Hue system:
+
+* **Global light setting flow**– this runs once a minute and sets global variables for the colour temperature and brightness for the house based on the sun position and time of day. It runs an algorithm that sets the brightness and colour temperature based on the Sun’s position in the sky, transitioning from 100% @ 6500K at midday to 75% @ 2200K at sunset.
+* **Global lightbulb & room array flow**– this runs once whenever Node-RED is restarted and sets up the global lightbulb array which is used to store the current status for each light bulb along with which room each bulb is in, it also creates the global room array which stores the settings for each room – including optional brightness overrides for different times of day.
+* **Lightbulb status update flows**– a very simple flow for each light bulb that uses events from that bulb to update the global lightbulb array with the bulbs current settings. If a bulb turns off, on or its brightness or colour at changed then these flows update the global lightbulb array.
+* **Lightbulb colour update flow**– once a minute this runs through the lightbulb array and updates the colour and brightness of each bulb that is turned on, unless an override is set, this also takes into account any room overrides – this flow takes the global light setting as defined in the global light setting flow.
+* **Room control flows**– these use a fairly complex sub-flow to manage the lights and takes inputs from Hue dimmer switches and/or motion sensors.
+* **Sunset bed time flow**– this flow is started when the bed becomes occupied after 9pm; the flow starts a sunset animation on the bedside light – the length of the animation depends on the time of going to bed – the later we go to bed the shorter the animation. Once the animation is complete, it also sets the house into a global ‘night mode’ where all the lights are set to be as dim as possible and in some rooms only a single bulb will be turned on. The flow also disables the bedroom motion sensor when the bed is occupied to stop the light coming on in the middle of the night.
+* **Sunrise wake up flow**– this flow is somewhat simpler, it starts at 5:30am everyday, even at weekends and fades up to full daylight for 6am when my alarm goes off. It also resets the night mode setting so the rest of the house will be illuminated as necessary.
+
+## Current Limitations and Further Work
+
+When combined the flows listed above transform my dumb ‘smart’ lights into something that can truly be called smart – lighting that actually improves your health and wellbeing. It’s not perfect, and I still have a few bugs to iron out, but its a really good step in the right direction.
+
+One of the major limitations I’ve come across with this project is with getting data from the Hue hub. Hue uses a REST API which works flawlessly to command bulbs and turn them on, but it provides no push system to notify Node-RED of changes or switch and motion sensor events. I’ve had to use a work-around by polling the Hue hub once per second to look for changes. This is less than ideal and can add a small but noticeable delay between a button being pushed and the light coming on. I’m still experimenting with alternatives, but what I’d really like to see is Philips add support to Hue for a better communication protocol such as MQTT.
+
+Currently I’m adding more functionality to my Hue lights by creating a tighter integration with my home theatre system, right now my living room light switch either turns on all the lights in the room when the TV is off, or a smaller set of lights if the TV is on. It also fades down the lights if a movie is being watched rather than just a TV show. This still needs a fair bit of work as we hit an edge case the other night where we were building a Lego model of the Apollo 11 lunar lander whilst watching a movie, First Man. The issue is that the movie lighting mode didn’t give enough light to see the Lego parts, but every time I turned up the lights, the system would fade them back to the movie mode level again. I need to work on how to handle these override cases better.
+
+I guess this has taught me a vital lesson, which is that you can’t design for what you can’t imagine. When I designed the system I hadn’t thought ‘what if I want to play with Lego whilst watching this movie?’ It will certainly be one of the first questions I ask in the future!
