@@ -41,11 +41,11 @@
   }
 }
 
-#logo {
+.logo {
   height: 1em;
 }
 
-.dark #logo path {
+.dark .logo path {
   fill: var(--aw-color-text-muted);
 }
 
