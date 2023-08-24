@@ -40,9 +40,7 @@ Smart lighting should be designed to respect your circadian rhythm, daylight bal
 Circadian lighting is essentially an artificial sunrise to sunset, that travels through both colour spectrum and illuminance levels mimicking that of natural daylight.
 
 ![A simulation showing how the sun’s brightness and colour change throughout the course of a day.](../../assets/images/sunlight-circadian.jpg)
-<caption class="caption-bottom">
-  A simulation showing how the sun’s brightness and colour change throughout the course of a day.
-</caption>
+<figcaption>A simulation showing how the sun’s brightness and colour change throughout the day.</figcaption>
 
 We can even take this one step further, instead of being awoken each morning in the dark by an alarm clock, why not have a light slowly fade up through deep reds and oranges to daylight over the course of half an hour – this artificial sunrise will start the wake up process in your body in a much more gental way than a loud alarm clock.
 
@@ -85,12 +83,14 @@ The beauty of this setup is that its less limited by the software and more by yo
 Node-RED is immensly powerful and anyone familiar with a little javascript will be right at home with some of its more advanced features. It allows for both simple programming using blocks that can be linked together with ‘wires’ or more complex programs using node javascript.
 
 <span class="not-prose"><img src={tvflow.src} width={tvflow.width} height={tvflow.height} alt="TV Flow in NodeRED"/></span>
+<figcaption>TV Flow in NodeRED</figcaption>
 
 Above is a simple flow which uses the TV power usage as an input – once the power passes a certain threshold it is deemed to be on. It then checks to see if the lights in the lounge are already on – if they are not, then the flow stops, but if they are it runs three more flows, the first resets any animations currently running on the lounge lights, the second sets the TV lights to the appropriate colour and brightness and the final flow slowly fades out the other lights in the room.
 
 To show a little more of the advanced features of Node-RED we can look at the TV Status node which outputs `true` if the TV is on or `false` if the TV is off. This node is a special type called a subflow – a small self contained flow that can be used multiple times as a node within other flows.
 
 <span class="not-prose"><img src={tvsubflow.src} width={tvsubflow.width} height={tvsubflow.height} alt="TV Subflow in NodeRED"/></span>
+<figcaption>TV Subflow in NodeRED</figcaption>
 
 The first node in this subflow is the raw input data from the TV power sensor, via the MQTT broker. This is then used in two functions; the first creates the status for the node – displaying the current power usage more for interest and debugging than anything else – the second sets the output for this subflow.
 
