@@ -53,18 +53,17 @@ const Content = post?.Content || null;
 
       {
         post.image ? (
-          <Image
-            src={post.image}
-            class="max-w-full lg:max-w-[900px] mx-auto mb-6 sm:rounded-md bg-gray-400 dark:bg-gray-700 drop-shadow-2xl"
-            widths={[400, 900]}
-            sizes="(max-width: 900px) 400px, 900px"
-            alt={post?.excerpt || ''}
-            loading="eager"
-            width={900}
-            height={506}
-            loading="eager"
-            decoding="async"
-          />
+          <div class="max-w-[900px] xl:max-w-[1200px]  2xl:max-w-[1500px] mx-auto mb-6">
+            <Image
+              src={post.image}
+              class="object-cover sm:rounded-md h-[450px] xl:h-[600px] 2xl:h-[750px] bg-gray-400 dark:bg-gray-700 drop-shadow-2xl"
+              widths={[400, 900, 1280]}
+              sizes="(max-width: 900px) 900px, (max-width: 1280px) 1280px, 1800px"
+              alt={post?.excerpt || ''}
+              loading="eager"
+              decoding="async"
+            />
+          </div>
         ) : (
           <div class="max-w-3xl mx-auto px-4 sm:px-6">
             <div class="border-t dark:border-gray-700" />
@@ -93,7 +92,8 @@ const Content = post?.Content || null;
         issue-term="pathname"
         theme="preferred-color-scheme"
         crossorigin="anonymous"
-        async>
+        async
+        >
       </script>
     </div>
   </article>

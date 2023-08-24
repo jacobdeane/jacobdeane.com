@@ -98,6 +98,24 @@ nav.main-navigation {
   @apply rotate-45 translate-y-[-8px] translate-x-[14px];
 }
 
+blockquote {
+  font-size: 2em;
+  line-height: 1.2;
+}
+
+.not-prose img {
+  margin: 2em auto;
+}
+
+figcaption {
+  font-size: 0.6em !important;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: -2.5em !important;
+}
+
 @media (min-width: 1024px) {
   pre {
     width:960px;
@@ -108,7 +126,16 @@ nav.main-navigation {
     margin-left: -120px;
     padding-left: 0 !important;
     border-left: none;
-    font-size: 2em;
-    line-height: 1.2;
+  }
+}
+
+@media (min-width: 1536px) {
+  pre {
+    width: 1200px;
+    margin-left: -150px;
+  }
+  blockquote {
+    width: 1020px;
+    margin-left: -120px;
   }
 }
