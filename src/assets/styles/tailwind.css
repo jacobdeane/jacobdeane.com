@@ -103,7 +103,7 @@ blockquote {
   line-height: 1.2;
 }
 
-.not-prose img {
+.not-prose img, .prose img {
   margin: 2em auto;
 }
 
