@@ -99,8 +99,20 @@ nav.main-navigation {
 }
 
 blockquote {
+  position: relative;
   font-size: 2em;
   line-height: 1.2;
+}
+
+cite {
+  display: inline-block;
+  position: absolute;
+  font-size: 0.4em;
+  right: 0;
+  bottom: -2em;
+  color: var(--aw-color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .not-prose img, .prose img {
