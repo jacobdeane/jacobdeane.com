@@ -1,0 +1,77 @@
+---
+publishDate: 2017-08-15T20:23:43.538Z
+title: What is HDR?
+excerpt: "HDR is a term that marketers love to use with no explanation and often wildly inaccurate comparison images. Like organic food, you know it must be good, but the real question is: what is HDR exactly?"
+image: https://images.unsplash.com/photo-1501621667575-af81f1f0bacc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3540&q=80
+category: technology
+tags:
+  - technology
+  - audio-visual
+  - science
+---
+import martianSDR from '~/assets/images/what-is-hdr/martian-sdr.jpg';
+import martianHDR from '~/assets/images/what-is-hdr/martian-hdr.jpg';
+import earthSDR from '~/assets/images/what-is-hdr/planet-earth-sdr.jpg';
+import earthHDR from '~/assets/images/what-is-hdr/planet-earth-hdr.jpg';
+import everestSDR from '~/assets/images/what-is-hdr/everest-sdr.jpg';
+import everestHDR from '~/assets/images/what-is-hdr/everest-hdr.jpg';
+
+You’ve probably heard of HDR. You’ve almost certainly taken an HDR photo on your phone. And whilst your phone can take HDR photos, thats not what I’m talking about. Unless you have an iPhone 7 or an iPad Pro as these have HDR or ‘wide gamut’ displays. Come to think about it if you come across this post in 3-5 years time then all phones will probably have ‘wide gamut’ displays. I think I’ve side tracked slightly…
+
+HDR stands for High Dynamic Range and it is a huge upgrade to the colours available on screens. As mentioned you may already have a HDR screen on your phone, and if you’ve seen a film in a cinema recently (digitally projected), then you will have seen HDR on the big screen.
+
+That technology has also come to the home entertainment space in the form of HDR TVs.
+
+Currently I have a ‘Full HD’ 1080p television which supports 8-bit color – that means there are 8 bits of data per channel (Red, Green & Blue) for each pixel which gives the screen the ability to display up to 16.7 million colours. HDR comes in a few flavours, the most common being HDR10, which supports 10-bit colour or up to \~ 1 billion colours. Dolby Vision, another of the HDR formats can support up to 12-bit colour or up to \~ 68.7 billion colours.
+
+## Does it make that much of a difference?
+
+Its not really possible to show the actual difference between 8-bit and 10-bit or 12-bit on a website, which you are most likely viewing on a device with a screen that only supports 8-bit (sorry readers from the future), but I can simulate some of the differences.
+
+<div className="juxtapose">
+	<img src={martianSDR.src} alt="SDR" data-label="SDR" />
+	<img src={martianHDR.src} alt="HDR" data-label="HDR" />
+</div>
+
+This first example is a still from *The Martian*. On the left is the ‘SDR’ version and on the right the ‘HDR’ version – note that the HDR version isn’t mastered to be any brighter. But if you look at the shadow detail in the mountains you can see a lot more detail in the HDR version. Colours are generally richer in HDR than SDR.
+
+<div className="juxtapose">
+	<img src={earthSDR.src} alt="SDR" data-label="SDR" />
+	<img src={earthHDR.src} alt="HDR" data-label="HDR" />
+</div>
+
+In the above example from *BBC Planet Earth*, you can see posterisation occuring in the gradient of the sky of the SDR image – this can occur because there isn’t enough colour data to get a smooth gradient – this is much improved in HDR.
+
+As well as having much better colour, HDR can support a much higher peak brightness – HDR10 supports up to 4,000 nits, and Dolby Vision to a sunburn inducing 10,000 nits but in practice films are rarely mastered with such extreme highlights – for comparison my older generation LCD TV outputs maybe 120 nits once calibrated and the brightest HDR TVs available today are hitting around 1800 nits.
+
+<div className="juxtapose">
+	<img src={everestSDR.src} alt="SDR" data-label="SDR" />
+	<img src={everestHDR.src} alt="HDR" data-label="HDR" />
+</div>
+
+In the above example from *Everest*, you can see how much highlight details has been lost in the SDR version – the HDR image isn’t noticeably brighter, but it has a lot more headroom for highlight details. You can also see that highlights such as on the top of the ladder can be much brighter than in the SDR image but the image overall has a similar average brightness.
+
+## HDR Formats
+
+You may have noticed that I mentioned HDR comes in a few flavours, and this does complicate things a little. UHD (4K) Blu-rays are nearly all mastered for HDR – the majority support HDR10 and some support Dolby Vision. We also have HLG (Hybrid Log Gamma) developed by the BBC which is backwards compatible with older SDR screens and will be used for broadcast in the not too distant future.
+
+HDR10 is the most common format, and Blu-rays mastered in HDR10 can use two different peak brightnesses, either 1000 nits or 4000 nits. This means that some discs can have more data than the screens can display.
+
+## Tone Mapping
+
+In order to display an image with more data than the screen can produce, modern HDR capable TVs use Tone Mapping to re-map the colours onto the available screen colour space. The TV will likely have different image profiles that use different mappings to achieve a different looking image. For example one profile may chose to disregard or clip all the information above the TV’s available max brightness which will lose highlight detail, but maintain average picture brightness, whereas another profile may compress the input image so that all of the data is displayed which will naturally lower the overall brightness of the image. The choices made by the TV manufacturers/engineers will depend somewhat on the screen technology they’re using.
+
+Most current HDR TVs use one of two major technologies, OLED and LED LCDs – no doubt screen technology will continue to improve and we could even see hybrid technologies or even something completely new! This weekend I’m taking part in the [2017 HDTVtest TV Shootout](/blog/2017/07/29/4k-hdr-tv-shootout/) which will compare 5 of the best HDR TVs currently available, it will be really interesting to see which of the two current technologies is better…
+
+## OLED vs LED LCD
+
+OLEDs are an emmisive display technology which means that each pixel generates its own light and can be turned off completely. Pure black on an OLED displays no light at all, this gives OLEDs an infinite contrast ratio. This year’s OLEDs can output a peak brightness of around 800 nits so long as no more than 10% of the screen is that bright. OLEDs tend to handle dark scenes very well, but lack the punch of high end LCD TVs which can reach peak brightnesses 2.5 times brighter. Therefore OLEDs tend to be better suited to darker environments with lower ambient light levels.
+
+LED LCDs are a reflective display technology using a backlight to reflect off each pixel – so black can not ever be black, but very very very dark grey. But they can get a lot brighter (up to 1,800 nits) over more of their displays for longer, so they tend to have quite a wow factor with HDR content. They won’t handle dark scenes as well as OLEDs, but some such as the Sony ZD9 can get close by splitting up the backlight into an array of smaller areas which can be individually dimmed. This is called Local Array Dimming. When partnered with a good dimming algorithm they can achieve very convincing black levels.
+
+## Conclusion
+
+HDR is still in its infancy, at least in the home environment, but with HLG HDR broadcasts coming in the near future and 4K blurays supporting HDR as standard, it will become mainstream soon enough – sure it might only be worth it in high end TVs now, but this is the kind of technology that will trickle down quickly – 4K took a couple of years to get into entry level TVs, HDR will probably be as quick. I’d say HDR will probably be a better reason to upgrade your TV than the extra resolution offered by 4K.
+
+<script src="http://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
+<link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css" />
