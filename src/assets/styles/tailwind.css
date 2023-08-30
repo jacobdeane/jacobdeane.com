@@ -189,6 +189,33 @@ a.jx-knightlab {
 	display: none !important;
 }
 
+.message {
+  padding: 0.809rem 1.618rem;
+  margin-bottom: 1.618rem;
+  box-sizing: border-box;
+  background-color: var(--color-light-grey);
+  border-left: 6px solid #666;
+}
+
+.message .title {
+    text-transform: uppercase;
+    color: #666;
+}
+
+.message p { margin: 0; }
+
+.message.info { border-color: #45ABCD; }
+.message.info .title { color: #45ABCD; }
+
+.message.error { border-color: #D73814; }
+.message.error .title { color: #D73814; }
+
+.message.warning { border-color: #FEAF20; }
+.message.warning .title { color: #FEAF20; }
+
+.message.success { border-color: #80D651; }
+.message.success .title { color: #80D651; }
+
 @media (min-width: 1024px) {
   pre {
     width:960px;
